@@ -86,7 +86,6 @@ components:
 events:
   postStart:
     - set-camel-cli
-    - set-route-timeout
 
 commands:
   - id: set-camel-cli
@@ -96,7 +95,7 @@ commands:
 
   - id: set-route-timeout
     exec:
-      commandLine: 'source ~/.bashrc && oc annotate `oc get route -o name | grep 8080` --overwrite haproxy.router.openshift.io/timeout=300s'
+      commandLine: 'oc annotate `oc get route -o name | grep 8080` --overwrite haproxy.router.openshift.io/timeout=300s'
       component: tools
 
 
