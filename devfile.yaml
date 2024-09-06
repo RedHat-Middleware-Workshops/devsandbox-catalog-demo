@@ -88,11 +88,17 @@ components:
 events:
   postStart:
     - set-camel-cli
+    - set-lab-scripts
 
 commands:
   - id: set-camel-cli
     exec:
       commandLine: 'source ~/.bashrc && jbang version --update && jbang cache clear && jbang app uninstall camel && jbang app install camel@apache/camel && camel version set 4.8.0-SNAPSHOT'
+      component: tools
+
+  - id: set-lab-scripts
+    exec:
+      commandLine: 'echo "export PATH=\$LLM_TOOLS/scripts:\$PATH" >> ~/.bashrc'
       component: tools
 
   - id: set-route-timeout
