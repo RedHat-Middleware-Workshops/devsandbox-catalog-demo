@@ -6,5 +6,8 @@
 		{
 			"path": "../demo2"
 		}
-	]
+	],
+	"settings": {
+		"kaoto.catalog.url": "https://raw.githubusercontent.com/KaotoIO/catalogs/4.8.0-SNAPSHOT/catalogs/index.json"
+	}
 }
