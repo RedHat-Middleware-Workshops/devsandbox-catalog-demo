@@ -17,6 +17,12 @@ projects:
       origin: https://github.com/RedHat-Middleware-Workshops/devsandbox-category-llm-basics.git
 
 
+- name: catalog
+  git:
+    remotes:
+      origin: https://github.com/RedHat-Middleware-Workshops/devsandbox-catalog-demo.git
+
+
 components:
   - name: tools
     container:
@@ -34,8 +40,11 @@ components:
           value: $(JAVA_OPTS)
         - name: LLM_TOOLS
           value: /projects/llm-basics/camel/tools
-        # - name: VSCODE_DEFAULT_WORKSPACE
-        #   value: "/projects/catalog/config.code-workspace"
+
+        # TEST
+        - name: VSCODE_DEFAULT_WORKSPACE
+          value: "/projects/catalog/config.code-workspace"
+        
       endpoints:
         - exposure: public
           name: 8080-tcp
