@@ -97,7 +97,8 @@ components:
 events:
   postStart:
     - set-camel-cli
-    - set-lab-scripts
+    - setup-lab-default
+    # - set-lab-scripts
 
 commands:
   - id: set-camel-cli
@@ -109,6 +110,11 @@ commands:
   - id: set-lab-scripts
     exec:
       commandLine: 'echo "export PATH=\$LLM_TOOLS/scripts:\$PATH" >> ~/.bashrc'
+      component: tools
+
+  - id: setup-lab-default
+    exec:
+      commandLine: 'echo "export LAB_SCRIPTS=/projects/llm-basics/camel/tools\nexport PATH=\$LAB_SCRIPTS:\$PATH\nsource setup" >> ~/.bashrc'
       component: tools
 
   - id: set-route-timeout
