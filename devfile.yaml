@@ -107,16 +107,21 @@ commands:
       commandLine: 'source ~/.bashrc && jbang version --update && jbang cache clear && jbang app uninstall camel && jbang app install camel@apache/camel'
       component: tools
 
-  - id: set-lab-scripts
-    exec:
-      commandLine: 'echo "export PATH=\$LLM_TOOLS/scripts:\$PATH" >> ~/.bashrc'
-      component: tools
+  # - id: set-lab-scripts
+  #   exec:
+  #     commandLine: 'echo "export PATH=\$LLM_TOOLS/scripts:\$PATH" >> ~/.bashrc'
+  #     component: tools
 
   - id: setup-lab-default
     exec:
       commandLine: 'echo -e "export LAB_SCRIPTS=/projects/llm-basics/camel/tools/scripts\nexport PATH=\$LAB_SCRIPTS:\$PATH\nsource setup" >> ~/.bashrc'
       component: tools
 
+  - id: setup-lab-llm-basics
+    exec:
+      commandLine: 'sed -i "/LAB_SCRIPTS=.*/c\LAB_SCRIPTS=/projects/llm-basics/camel/tools/scripts" ~/.bashrc'
+      component: tools
+      
   - id: setup-lab-test1
     exec:
       commandLine: 'sed -i "/LAB_SCRIPTS=.*/c\LAB_SCRIPTS=/projects/test1/scripts" ~/.bashrc'
