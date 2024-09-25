@@ -114,7 +114,12 @@ commands:
 
   - id: setup-lab-default
     exec:
-      commandLine: 'echo -e "export LAB_SCRIPTS=/projects/llm-basics/camel/tools\nexport PATH=\$LAB_SCRIPTS:\$PATH\nsource setup" >> ~/.bashrc'
+      commandLine: 'echo -e "export LAB_SCRIPTS=/projects/llm-basics/camel/tools/scripts\nexport PATH=\$LAB_SCRIPTS:\$PATH\nsource setup" >> ~/.bashrc'
+      component: tools
+
+  - id: setup-lab-test1
+    exec:
+      commandLine: 'sed -i "/LAB_SCRIPTS=.*/c\LAB_SCRIPTS=/projects/test1/scripts" ~/.bashrc'
       component: tools
 
   - id: set-route-timeout
